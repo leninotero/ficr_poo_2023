@@ -1,16 +1,22 @@
 package controler;
 
 import gestaoPessoas.Pessoa;
+import view.Menus;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class ControlerCliente {
     Scanner input = new Scanner(System.in);
     Pessoa cliente;
+    Menus menu = new Menus();
     String cpf, nome, username, pwd, sexo, email;
     int idade;
     double rendaMensal;
 
+    public void mostrarSubMenuClientes(){
+        menu.subMenuUsuarios();
+    }
     public void cadastrarCliente() {
         cliente = new Pessoa();
         System.out.println("Digite o CPF: ");

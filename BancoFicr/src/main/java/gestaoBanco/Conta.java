@@ -76,6 +76,14 @@ public abstract class Conta  {
         saldo = saldo - valorPagar;
     }
 
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
     public String retornaBanco(String codBarras){
         int codBanco = Integer.parseInt(codBarras.substring(0,3));
         String nomeBanco;
