@@ -28,10 +28,10 @@ public class ContaPoupanca extends Conta{
         depositar(saldoAtual * taxa);
     }
 
-    public void depositar(double valor){
-        this.bonus = this.bonus + (valor * 0.5);
-        super.depositar(valor);
-    }
+//    public void depositar(double valor){
+//        this.bonus = this.bonus + (valor * 0.5);
+//        super.depositar(valor);
+//    }
 
     public void sacar (double valor){
         setSaldo(getSaldo() - valor);
