@@ -3,7 +3,7 @@ package gestaoBanco;
 import jakarta.persistence.*;
 
 @MappedSuperclass
-public abstract class Conta  {
+public class Conta  {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,11 +64,14 @@ public abstract class Conta  {
         this.limiteConta = limiteConta;
     }
 
-    public void depositar(double valor){
+    public double depositar(double valor){
         this.saldo += valor;
+        return saldo;
     }
 
-    public abstract void sacar(double valor);
+    public void sacar(double valor){
+        this.saldo -= valor;
+    }
 
     public void pagarBoleto(String codBarras){
         double valorPagar;

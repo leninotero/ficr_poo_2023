@@ -8,6 +8,7 @@ import gestaoPessoas.PessoaJuridica;
 import interfaces.RepositorioContas;
 import repositorioBD.CadastroConta;
 import repositorioJPA.CadastroContaJpa;
+import repositorios.RepositorioContasLista;
 import view.Menus;
 
 import java.util.Scanner;
@@ -35,15 +36,15 @@ public class ControlerConta {
         agencia = input.nextInt();
         cp.setAgencia(agencia);
         cp.setLimiteConta(100.00);
-//        listaContas.inserir(cp);          //Nesta linha usamos ArrayList
+        listaContas.inserir(cp);          //Nesta linha usamos ArrayList
 //        CadastroConta.salvarConta(cp);    //Nesta linha usamos JDBC
-        CadastroContaJpa.salvarConta(cp);   //Nesta linha usamos JPA
+//        CadastroContaJpa.salvarConta(cp);   //Nesta linha usamos JPA
 
     }
 
     public void listarTodasContas(RepositorioContas listaContas) throws Exception {
-//        System.out.println(((RepositorioContasLista) listaContas).listar());  //Nesta linha usamos ArrayList
-        CadastroConta.listarContas(cp);         //Nesta linha usamos JDBC
+        System.out.println(((RepositorioContasLista) listaContas).listar());  //Nesta linha usamos ArrayList
+//        CadastroConta.listarContas(cp);         //Nesta linha usamos JDBC
     }
 
     public void depositar(RepositorioContas listaContas) throws Exception{
@@ -60,14 +61,14 @@ public class ControlerConta {
         saldo = cp.getSaldo();
         cp.setSaldo(saldo);
         cp.setLimiteConta(100.00);
-        CadastroConta.alterarConta(cp);     //Nesta linha usamos JDBC
+//        CadastroConta.alterarConta(cp);     //Nesta linha usamos JDBC
     }
 
     public void excluirConta(RepositorioContas listaContas) throws Exception{
         System.out.println("Digite o numero da conta a ser excluida: ");
         conta = input.next();
         cp.setConta(conta);
-//        listaContas.remover(cp.getConta());   //Nesta linha usamos ArrayList
-        CadastroConta.excluirConta(cp);         //Nesta linha usamos JDBC
+        listaContas.remover(cp.getConta());   //Nesta linha usamos ArrayList
+//        CadastroConta.excluirConta(cp);         //Nesta linha usamos JDBC
     }
 }
