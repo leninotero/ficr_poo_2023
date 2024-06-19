@@ -10,11 +10,11 @@ public class ContaPoupanca extends Conta{
     @Column(name = "bonus")
     private double bonus;
 
-    public ContaPoupanca (String conta, int agencia,double limiteConta){
+    public ContaPoupanca (String conta, byte agencia,double limiteConta){
         super(conta, agencia, limiteConta);
     }
 
-    public ContaPoupanca (String conta, int agencia){
+    public ContaPoupanca (String conta, byte agencia){
         super(conta, agencia);
     }
 
@@ -28,9 +28,10 @@ public class ContaPoupanca extends Conta{
         depositar(saldoAtual * taxa);
     }
 
-    public void depositar(double valor){
+    public double depositar(double valor){
         this.bonus = this.bonus + (valor * 0.5);
         super.depositar(valor);
+        return super.getSaldo();
     }
 
     public void sacar (double valor){
